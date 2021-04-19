@@ -24,8 +24,10 @@ http.createServer(function (req, res) {
                 res.writeHead(404, { "Content-Type": "text/html" });
                 return res.end("404 Not Found");
             }
+            const dataFromFile = JSON.parse(data);
+            const stringData = JSON.stringify(dataFromFile);
             res.writeHead(200, { "Content-Type": "application/json" });
-            res.write(data);
+            res.write(stringData);
             res.end();
         });
     }
